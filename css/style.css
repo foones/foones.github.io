@@ -1,0 +1,73 @@
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  line-height: 1.5;
+}
+
+body div {
+  margin: 0 auto;
+  display: block;
+}
+
+body div div {
+  80%;
+}
+
+li {
+  list-style: circle;
+}
+
+h1, h2, h3 {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  width: 100%;
+  margin: 0;
+  padding: 1%;
+}
+
+h2 {
+  color: #666;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+}
+
+h3 {
+  color: #333;
+}
+
+#menu {
+  margin-bottom: 1%;
+  padding: 1%;
+}
+
+#menu a {
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#content {
+  width: 80%;
+  max-width: 600px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 2px;
+  border: solid gray 1px;
+}
+
