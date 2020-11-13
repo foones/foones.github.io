@@ -72,5 +72,6 @@ th, td {
 }
 
 .resaltar {
-  color: blue;
+  font-weight: bold;
+  color: #008000;
 }
