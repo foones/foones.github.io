@@ -71,3 +71,6 @@ th, td {
   border: solid gray 1px;
 }
 
+.resaltar {
+  color: blue;
+}
