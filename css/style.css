@@ -72,5 +72,9 @@ th, td {
 }
 
 .resaltar {
-  color: #d92600;
+}
+
+a.resaltar {
+  color: #0000bb;
+  font-size: 18pt;
 }
