@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="author" content="Pablo Barenbaum">
+    <meta name="description" content="Teoría de la Computación, Licenciatura en Informática con Orientación en Desarrollo de Software, Universidad Nacional de Quilmes">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript">
+function show(x) {
+  let secciones = ['principal', 'programa', 'cronograma'];
+  for (let s of secciones) {
+    document.getElementById(s).style.display = (s == x ? '' : 'none');
+  }
+}
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" type="text/css" rel="stylesheet">
+    <title>Teoría de la Computación</title>
+  </head>
+  <body onload="show('principal')">
+  <h1 class="title">Teoría de la Computación &ndash; 2021c1, UNQ</h1>
+  <div id="menu">
+  <p><a href="#" onclick="show('principal')">Principal</a></p>
+  <p><a href="#" onclick="show('programa')">Programa y bibliografía</a></p>
+  <p><a href="#" onclick="show('cronograma')">Cronograma</a></p>
+  </div>
+  <div id="content">
+    <div id="principal">
+	  <h1>Principal</h1>
+	  <p>Teoría de la Computación &ndash; 1er cuatrimestre de 2021</p>
+	  <p>Licenciatura en Informática con Orientación en Desarrollo de Software</p>
+	  <p>Universidad Nacional de Quilmes</p>
+	  <h2>Horarios</h2>
+	  <p>Martes de 18:00 a 22:00.</p>
+	  <p>Las clases se publicarán grabadas y habrá encuentros para consultas en vivo (a través de algún medio a convenir).</p>
+	  <h2>Docentes</h2>
+	  <p>Pablo Barebaum</p>
+	  <p>pbarenbaum <i>at</i> dc <i>dot</i> uba <i>dot</i> ar</p>
+    </div>
+    <div id="programa">
+	  <h1>Programa</h1>
+	  <h2>Unidad 0: Repaso</h2>
+	  <p>Técnicas de demostración: directa, por la contrarrecíproca, por el absurdo, por inducción. Estructuras: palabras, grafos, conjuntos. Lenguajes y autómatas.</p>
+	  <h2>Unidad 1: Concepto de algoritmo</h2>
+	  <p>Máquinas de Turing (determinística, multi-cinta, no determinística) y sus equivalencias. Máquinas de Turing universales. Tesis de Church&ndash;Turing.</p>
+	  <h2>Unidad 2: Decidibilidad</h2>
+	  <p>Lenguajes decidibles (computables) y semi-decidibles (computablemente enumerables). Método de diagonalización.</p>
+	  <h2>Unidad 3: Reducibilidad</h2>
+	  <p>Turing-reducibilidad. Autómatas linealmente acotados (LBAs) y reducibilidad por historia de cómputos. Reducibilidad many-one.</p>
+	  <h2>Unidad 4: Complejidad temporal</h2>
+	  <p>Complejidad temporal, notación O, clases de complejidad determinísticas y no determinísticas. Clases P, NP, co-NP. NP-completitud y NP-completitud fuerte. Teorema de Cook&ndash;Levin. Reducciones à la Cook y à la Karp.</p>
+	  <h2>Unidad 5: Complejidad espacial</h2>
+	  <p>Clases de complejidad determinísticas y no determinísticas. Teorema de Savitch. Clases PSPACE, EXPTIME. Problemas PSPACE-completos y métodos de reducción. Clases L y NL. Problemas NL-completos y reducciones logspace.</p>
+	  <h1>Bibliografía</h1>
+	  <h2>Bibliografía básica</h2>
+	  <ul>
+	  <li>Michel Sipser. <em>Introduction to the theory of computation</em> (3rd ed.). Cengage Learning, 2012.
+	  <li>Arnold L. Rosenberg. <em>The Pillars of Computation Theory: State, Encoding, Nondeterminism</em>. Springer Science &et; Business Media, 2009.
+	  </ul>
+	  <h2>Bibliografía complementaria</h2>
+	  <ul>
+	  <li>Alan M. Turing. On Computable Numbers, with an Application to the Entscheidungsproblem, en <em>Proceedings of the London Mathematical Society</em>. Addison Wesley, 1936.
+	  <li>Michel Garey y David Johnson. <em>Computers and Intractability: A Guide to the Theory of NP-completeness</em>. W. H. Freeman, 1979.
+	  </ul>
+    </div>
+    <div id="cronograma">
+	  <h1>Cronograma</h1>
+	  <ul>
+	  <li>06/04 &ndash; Introducción a la materia. Máquinas de Turing.</li>
+	  <li>13/04 &ndash; Lenguajes computables y computablemente enumerables.
+	  <li>20/04 &ndash; Reducibilidad.</li>
+	  <li>27/04 &ndash; Equivalencia entre modelos de cómputo. Tesis de Church&ndash;Turing.</li>
+	  <li>04/05 &ndash; Teorema de Rice.</li>
+	  <li>11/05 &ndash; Turing-completitud y oráculos.</li>
+	  <li>18/05 &ndash; Complejidad temporal, notación "O".</li>
+	  <li class="fecha_feriado">25/05 &ndash; Feriado, Día de la Revolución de Mayo</strong></li>
+	  <li class="fecha_parcial">01/06 &ndash; Primer parcial.</li>
+	  <li>08/06 &ndash; Problemas tratables y no tratables.</li>
+	  <li>15/06 &ndash; NP-completitud y reducciones (1)</li>
+	  <li>22/06 &ndash; NP-completitud y reducciones (2)</li>
+	  <li>29/06 &ndash; Clases de complejidad y su relación.</li>
+	  <li>06/07 &ndash; Repaso.</li>
+	  <li class="fecha_parcial">13/07 &ndash; Segundo parcial</li>
+	  <li class="fecha_fin">16/07 &ndash; Finalización de cursada</li>
+	  <li class="fecha_fin">23/07 &ndash; Fecha límite de cierre y entrega de actas</li>
+	  </ul>
+    </div>
+  </div>
+  </body>
+</html>
