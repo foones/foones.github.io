@@ -19,20 +19,12 @@ li {
 }
 
 h1 {
-  width: 100%;
   margin: 0;
   font-size: 24pt;
-  border-bottom: #75aadb solid 10px;
 }
 
 h1, h2, h3 {
   font-family: "Montserrat", sans-serif;
-}
-
-h1 {
-  width: 100%;
-  margin: 0;
-  padding: 1%;
 }
 
 h2 {
@@ -47,8 +39,9 @@ h3 {
 }
 
 #menu {
-  margin-bottom: 1%;
-  padding: 1%;
+  margin: 0;
+  border-bottom: #75aadb solid 1px;
+  margin-bottom: 2px;
 }
 
 #menu a {
