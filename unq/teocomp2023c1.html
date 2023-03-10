@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="author" content="Pablo Barenbaum">
+    <meta name="description" content="Teoría de la Computación, Licenciatura en Informática con Orientación en Desarrollo de Software, Universidad Nacional de Quilmes">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript">
+function show(x) {
+  let secciones = ['principal', 'programa', 'clases'];
+  for (let s of secciones) {
+    document.getElementById(s).style.display = (s == x ? '' : 'none');
+  }
+}
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway" type="text/css" rel="stylesheet">
+    <title>Teoría de la Computación</title>
+  </head>
+  <body onload="show('principal')">
+  <h1 class="title">Teoría de la Computación &ndash; 2023c1, UNQ</h1>
+  <div id="menu">
+  <p><a href="#" onclick="show('principal')">Principal</a></p>
+  <p><a href="#" onclick="show('programa')">Programa y bibliografía</a></p>
+  <p><a href="#" onclick="show('clases')">Clases</a></p>
+  </div>
+  <div id="content">
+    <div id="principal">
+	  <h1>Principal</h1>
+	  <p>Teoría de la Computación &ndash; 1er cuatrimestre de 2022</p>
+	  <p>Licenciatura en Informática con Orientación en Desarrollo de Software</p>
+	  <p>Universidad Nacional de Quilmes</p>
+	  <h2>Horarios</h2>
+	  <p>Mi&eacute;rcoles de 18:00 a 22:00.</p>
+	  <p>Las clases ser&aacute;n presenciales.</p>
+	  <h2>Docentes</h2>
+	  <p>Pablo Barenbaum</p>
+	  <p>pbarenbaum <i>at</i> dc <i>dot</i> uba <i>dot</i> ar</p>
+    </div>
+    <div id="programa">
+	  <h1>Programa</h1>
+	  <h2>Unidad 0: Repaso</h2>
+	  <p>Técnicas de demostración: directa, por la contrarrecíproca, por el absurdo, por inducción. Estructuras: palabras, grafos, conjuntos. Lenguajes y autómatas.</p>
+	  <h2>Unidad 1: Concepto de algoritmo</h2>
+	  <p>Máquinas de Turing (determinística, multi-cinta, no determinística) y sus equivalencias. Máquinas de Turing universales. Funciones recursivas primitivas y recursivas generales. de Church&ndash;Turing.</p>
+	  <h2>Unidad 2: Decidibilidad</h2>
+	  <p>Lenguajes decidibles (computables) y semi-decidibles (computablemente enumerables). Método de diagonalización.</p>
+	  <h2>Unidad 3: Reducibilidad</h2>
+	  <p>Turing-reducibilidad. Autómatas linealmente acotados (LBAs) y reducibilidad por historial de cómputos. Reducibilidad funcional ("many-one").</p>
+	  <h2>Unidad 4: Complejidad temporal</h2>
+	  <p>Complejidad temporal, notación O, clases de complejidad determinísticas y no determinísticas. Clases P, NP, co-NP. NP-completitud y NP-completitud fuerte. Teorema de Cook&ndash;Levin. Reducciones à la Cook y à la Karp.</p>
+	  <h2>Unidad 5: Complejidad espacial</h2>
+	  <p>Clases de complejidad determinísticas y no determinísticas. Teorema de Savitch. Clases PSPACE, EXPTIME. Problemas PSPACE-completos y métodos de reducción. Clases L y NL. Problemas NL-completos y reducciones logspace.</p>
+	  <h1>Bibliografía</h1>
+	  <h2>Bibliografía básica</h2>
+	  <ul>
+	  <li>Michel Sipser. <em>Introduction to the theory of computation</em> (2nd ed.). Cengage Learning, 2012.
+	  <li>Arnold L. Rosenberg. <em>The Pillars of Computation Theory: State, Encoding, Nondeterminism</em>. Springer Science &et; Business Media, 2009.
+	  </ul>
+	  <h2>Bibliografía complementaria</h2>
+	  <ul>
+	  <li>Alan M. Turing. On Computable Numbers, with an Application to the Entscheidungsproblem, en <em>Proceedings of the London Mathematical Society</em>. Addison Wesley, 1936.
+	  <li>Michel Garey y David Johnson. <em>Computers and Intractability: A Guide to the Theory of NP-completeness</em>. W. H. Freeman, 1979.
+	  </ul>
+    </div>
+    <div id="clases">
+	  <h1>Clases</h1>
+      <p>Los números de sección (§) corresponden (aproximadamente) a las secciones del libro de Sipser que cubren los temas de cada clase.</p>
+	  <ul>
+	  <li>15/03 &ndash;
+         [§§ 0, 1, 3.1] Introducción a la materia. Máquinas de Turing.
+         <!-- <a href="https://www.youtube.com/playlist?list=PLxnoLkQypj6bbFIPZmJtia1uF9hmi4vbl">[video]</a> -->
+         <strong>Ejercicios:</strong> 3.2, 3.8, 3.13, 3.15, 3.16, 3.22.
+	  <li>22/03 &ndash;
+         [§ 4] Lenguajes decidibles y semi-decidibles (reconocibles). 
+         <!-- <a href="https://www.youtube.com/playlist?list=PLxnoLkQypj6ZDlyRR4Wv8mXIjhENOjfgQ">[video]</a> -->
+         <strong>Ejercicios:</strong> 4.3, 4.7, 4.16, 4.18.
+	  <li>29/03 &ndash; [§ 5] Reducibilidad.
+         <!-- <a href="https://www.youtube.com/playlist?list=PLxnoLkQypj6acEjcHJBGejXseGCmmOwPU">[video]</a> -->
+         <strong>Ejercicios:</strong> 5.4, 5.6, 5.7, 5.12, 5.15, 5.22, 5.24
+	  <li>05/04 &ndash; [§ 3.2] Otros modelos de cómputo: máquinas de Turing multicinta y no determinísticas. Funciones recursivas de Gödel/Kleene.
+         <!-- <a href="https://www.youtube.com/playlist?list=PLxnoLkQypj6YxqUpfyrFet9O91M78Oz35">[video]</a> -->
+         <strong>Ejercicios:</strong> 3.18, 3.19
+	  <li>12/04 &ndash; [§§ 6.3, 6.4] Turing-reducibilidad. Complejidad descriptiva e incompresibilidad.
+         <!-- <a href="https://www.youtube.com/playlist?list=PLxnoLkQypj6YB6xrZUdh_Uz2PxX4_z2hM">[video]</a> -->
+         <strong>Ejercicios:</strong> 6.14, 6.15
+	  <li>19/04 &ndash; Teorema de Rice. Nociones de teoría de la información.
+         <!-- <a href="https://www.youtube.com/playlist?list=PLxnoLkQypj6aLFTcBXGCU3sxh600BZ53_">[video]</a> -->
+         <strong>Ejercicios:</strong> 7.1, 7.2
+	  <li>26/04 &ndash; Repaso.
+	  <li class="fecha_parcial">03/05 &ndash; Primer parcial.
+	  <li>10/05 &ndash; [§ 7.1] Complejidad temporal, notación "O".
+         <!-- <a href="https://www.youtube.com/playlist?list=PLxnoLkQypj6Y0fcMIEq5iUmQR8SwEfv--">[video]</a> -->
+	  <li>17/05 &ndash; [§§ 7.2, 7.3] Las clases de complejidad P y NP.
+          <!-- <a href="https://www.youtube.com/playlist?list=PLxnoLkQypj6ay2AnHXctkJXEfMy81B5e7">[video]</a> -->
+          <strong>Ejercicios:</strong> 7.6, 7.7, 7.9
+	  <li>24/05 &ndash; [§ 7.4] NP-completitud, reducciones polinomiales y teorema de Cook&ndash;Levin.
+          <!-- <a href="https://www.youtube.com/playlist?list=PLxnoLkQypj6b1wwv6MQFBCqpRP56Er_Dj">[video]</a> -->
+	  <li>31/05 &ndash; [§ 7.5] Lenguajes NP-completos.
+          <!-- <a href="https://www.youtube.com/playlist?list=PLxnoLkQypj6Z-eErXvqTR5Nt8QsiCJIsc">[video]</a> -->
+          <strong>Ejercicios:</strong> 7.18, 7.20, 7.21
+	  <li>07/06 &ndash; [§§ 8.1, 8.2, 8.4] Clases de complejidad y su relación.
+          <!-- <a href="https://www.youtube.com/playlist?list=PLxnoLkQypj6bhJkTuw1x2wSAhYvdDGgN_">[video]</a> -->
+	  <li>14/06 &ndash; Repaso.
+	  <li class="fecha_parcial">21/06 &ndash; Segundo parcial.
+	  <li class="fecha_parcial">28/06 &ndash; Recuperatorio del primer parcial.
+	  <li class="fecha_parcial">05/07 &ndash; Recuperatorio del segundo parcial.
+	  <li class="fecha_fin">14/07 &ndash; Finalización de cursada.
+	  <li class="fecha_fin">19/07 &ndash; Fecha límite de cierre y entrega de actas.
+	  </ul>
+    </div>
+  </div>
+  </body>
+</html>
