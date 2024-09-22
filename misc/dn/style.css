@@ -1,0 +1,81 @@
+
+#main {
+  margin-top: 1em;
+  display: block;
+}
+
+#derivation {
+  float: left;
+  height: 100%;
+  font-size: 12pt;
+}
+
+#options {
+  flex: 1;
+  display: grid;
+  padding: 1em;
+  border-left: solid gray 2px;
+  margin-left: 1em;
+  float: left;
+}
+
+.derivation {
+  display: inline-block;
+}
+
+.sequent {
+  display: inline-block;
+  cursor: default;
+  margin: 0 .5em 0 .5em;
+}
+
+.sequent:hover {
+  background: blue;
+}
+
+.sequent.selected:hover {
+  background: red;
+}
+
+.selected {
+  background: yellow;
+}
+
+.proved {
+  border-bottom: solid black 2px;
+}
+
+.option {
+  display: flex;
+  float: top;
+}
+
+.option input {
+}
+
+.option input[type=text] {
+  font-family: monospace;
+  font-size: 10pt;
+}
+
+.clear_button {
+  font-weight: bold;
+}
+
+.rule_name {
+  padding: .5em;
+  border-bottom: 0;
+  display: inline-block;
+  font-family: monospace;
+  font-size: 10pt;
+  color: white;
+  background: black;
+  vertical-align: middle;
+}
+
+.errmsg {
+  vertical-align: middle;
+  padding: 0;
+  color: red;
+  font-size: 10pt;
+}
