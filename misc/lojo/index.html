@@ -1,0 +1,23 @@
+<html>
+<head>
+  <script src="lojo.js" language="javascript"></script>
+</head>
+<body onload="init('programa', 'pila', 'canvas1', 'err_msg')">
+  <canvas id="canvas1" width="612" height="400" style="background:#f0f0f0;border:solid black 1px;">
+  </canvas>
+  <br>
+  <table><tr>
+    <td valign="top">
+      <textarea id="programa" style="border:solid black 1px;padding:5px;width:400px;height:200px" onkeydown="programa_onKeyDown()"></textarea>
+      <br>
+      <input type="button" value="do it" style="width:400px" onclick="interpretar_elemento(__evaluator, __programa_elem, __stack_elem)"></input>
+    </td>
+    <td valign="top">
+      <div id="pila" style="border:solid black 1px;width:190px;height:190px;padding:5px"></div>
+    </td>
+  </tr></table>
+  <br>
+  <div id="err_msg" style="width:600px;padding:20px 0 20px 0;margin:0;color:red;font-weight:bold;"></div>
+</body>
+</html>
+
