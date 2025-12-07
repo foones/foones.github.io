@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="author" content="Pablo Barenbaum">
+    <meta name="description" content="Tipos Dependientes y Demostradores Interactivos">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <title>Tipos Dependientes y Demostradores Interactivos</title>
+  </head>
+  <body>
+  <div id="content">
+    <h1>Tipos Dependientes y Demostradores Interactivos</h1>
+
+    <h2>Teóricas (cronograma)</h2>
+    <ul>
+    <li>
+      Juicios y proposiciones. Funciones y funciones dependientes. Pares y pares dependientes. Tipos unitario y vacío. Universos.
+      Introducción a la teoría de tipos de Martin-Löf y lógica en Agda.
+    <li>
+      Igualdad definicional vs. proposicional. Inducción en caminos.
+      Recursión e inducción sobre números naturales. Razonamiento ecuacional.
+    <li>
+      Propiedades de la igualdad: estructura de ω-grupoide. Transporte.
+      Recursión e inducción sobre números naturales (continuación).
+    <li>
+      Propiedades del transporte (transportconst, apd, transporte vía una familia de caminos). Homotopía. Equivalencia de tipos.
+      Recursión e inducción sobre tipos de datos inductivos.
+    <li>
+      Axioma de univalencia. Estructura de groupoide de orden superior de los constructores de tipos.
+      Predicados definidos inductivamente. Equivalencia de tipos.
+    <li>
+      Tipos contráctiles, proposiciones, conjuntos, grupoides, etc.
+      Lógica clásica. Equivalencia entre principios de razonamiento clásicos. Demostración de algunas equivalencias de tipos. 
+    <li>
+      Metateoría: Cálculo-lambda sin tipos. Alfa y beta-equivalencia. Confluencia.
+      Ejemplos de formalización de tipos abstractos de datos y algoritmos.
+    <li>
+      Metateoría: Punto de vista de Curry-Howard y normalización del cálculo-lambda simplemente tipado.
+      Ejemplos de formalización de matemática y estructuras algebraicas.
+    <li>
+      Metateoría: Sistema F.
+      Formalización del cálculo-lambda simplemente tipado.
+    <li>
+      Metateoría: Lógica de orden superior (HOL). Codificación de la igualdad a la Leibniz y el existencial en HOL. Pure type systems, cálculo de construcciones y cubo de Barendregt.
+    <li>
+      Implementación de un asistente de demostración minimalista usando chequeo de tipos bidireccional.
+    <li>
+      Tipos de datos inductivos: F-álgebras y unicidad de la F-álgebra inicial. Restricciones de positividad y paradoja de Girard.
+      Tipos de datos coinductivos: F-coálgebras.
+    <li>
+      Tipos inductivos de orden superior (HITs).
+    </ul>
+
+    <h2>Material de las clases</h2>
+    <ul>
+    <li> <a href="files/clase01.agda">Clase 01</a>: introducción a MLTT en Agda.
+    <li> <a href="files/clase02.agda">Clase 02</a>: inducción en naturales.
+    <li> <a href="files/clase03.agda">Clase 03</a>: ejemplo de recursión no primitiva.
+    <li> <a href="files/clase04.agda">Clase 04</a>: demostración de algunas equivalencias de tipos.
+    <li> <a href="files/clase05.agda">Clase 05</a>: preservación del invariante de árbol binario de búsqueda por inserción.
+    <li> <a href="files/clase06.agda">Clase 06</a>: interderivabilidad de principios de razonamiento clásicos.
+    <li> <a href="files/clase07.agda">Clase 07</a>: corrección del algoritmo de ordenamiento por inserción.
+    <li> <a href="files/clase08.agda">Clase 08</a>: teorema fundamental del cálculo en geometría sintética diferencial.
+    <li> <a href="files/clase09.agda">Clase 09</a>: formalización cálculo-lambda simplemente tipado.
+    <li> <a href="files/clase10.v">Clase 10</a>: ejemplos de usos de tácticas básicas en Rocq.
+    <li> <a href="files/clase11.agda">Clase 11</a>: código fuente en Haskell de un asistente de demostración minimalista usando chequeo de tipos bidireccional.
+    <li> <a href="files/clase12.agda">Clase 12</a>: tipos de datos coinductivos.
+    <li> <a href="files/clase13.agda">Clase 13</a>: tipos inductivos de orden superior.
+    </ul>
+
+    <h2>Trabajos</h2>
+    <ul>
+    <li> <a href="files/tpA.agda">TP 1A</a>: corrección de la deducción natural clásica con respecto a la semántica bivaluada.
+    <li> <a href="files/tpB.agda">TP 1B</a>: semántica de lenguajes imperativos con triplas de Hoare.
+    <li> <a href="files/parcial.agda">Parcial</a>: equivalencia de expresiones regulares. 
+    <li> Ideas para TP2:
+      <ol>
+      <li>
+        Formalizar algún algoritmo y demostrar que es correcto con respecto a su especificación:
+        <ol>
+        <li> Algoritmos de sorting; devuelven una permutación ordenada de la lista de entrada.
+        <li> Algoritmo de Euclides para el máximo común divisor.
+        <li> SAT solver: determinar si una fórmula es satisfactible en lógica proposicional clásica.
+        </ol>
+      <li>
+        Formalizar alguna estructura de datos y demostrar que las operaciones preservan el invariante:
+        <ol>
+        <li> Árboles balanceados (AVLs, Red-Black Trees).
+        <li> Heaps binarios.
+        <li> Disjoint sets (union-find).
+        </ol>
+      <li>
+        Formalizar algún teorema matemático:
+        <ol>
+        <li> Existen infinitos números primos.
+        <li> Definición de coeficientes binomiales y sus propiedades.
+        <li> Todo entero se puede escribir como un producto de números primos.
+        <li> Propiedades de cardinales (p. ej. argumento diagonal de Cantor; teorema de Cantor-Schröder-Bernstein).
+        <li> Teoremas de isomorfismo de grupos.
+        </ol>
+      <li>
+        Formalizar algún teorema de HoTT:
+        <ol>
+        <li> Demostrar la equivalencia entre distintas nociones de equivalencia de tipos (Capítulo 4 de HoTT).
+        </ol>
+      </ol>
+    </ul>
+
+    <h2>Objetivos</h2>
+    <p>El curso se propone dar los fundamentos teóricos que subyacen a los asistentes de demostración interactiva de teoremas, y en particular a aquellos basados en teorías de tipos dependientes. Desde el punto de vista práctico, el curso se propone introducir a los estudiantes al uso de demostradores interactivos para la verificación de programas y la formalización de teoremas matemáticos.</p>
+    <p>Se espera que, después de haber aprobado el curso, los estudiantes:</p>
+    <ul>
+    <li> Entiendan los fundamentos de la correspondencia entre proposiciones y tipos, y en particular la importancia de los teoremas de preservación de tipos y normalización, tanto desde el punto de vista lógico-filosófico como desde el punto de vista lógico-matemático.
+    <li> Conozcan las principales teorías en las que se basan los asistentes de demostración y los principios lógicos que usan: lógica clásica vs. intuicionista, teoría de conjuntos vs. teoría de tipos, igualdad extensional vs. intensional, predicatividad vs. impredicatividad, relevancia vs. irrelevancia de demostraciones, axioma K y principio de univalencia.
+    <li> Se familiaricen con los conceptos teóricos necesarios para usar demostradores interactivos, y especialmente con las nociones de producto y suma dependiente, el tipo identidad, la noción de equivalencia de tipos y algunas nociones provenientes de la teoría homotópica de tipos (n-types y principio de univalencia).
+    <li> Adquieran experiencia práctica a través de la formalización de problemas de pequeña o mediana escala.
+    </ul>
+
+    <h2>Bibliografía</h2>
+    <ul>
+    <li> The Univalent Foundations Program. <em>Homotopy Type Theory: Univalent Foundations of Mathematics</em>. <a href="https://homotopytypetheory.org/book/">Disponible electrónicamente</a>. Institute for Advanced Study, 2013.
+    <li> Philip Wadler, Wen Kokke y Jeremy G. Siek. <em>Programming Language Foundations in Agda</em>. <a href="https://plfa.inf.ed.ac.uk/22.08/">Disponible electrónicamente</a>. 2022.
+    <li> Benjamin C. Pierce y otros. <em>Software Foundations series, volume 1: Logical Foundations</em>, versión 6.7. <a href="https://softwarefoundations.cis.upenn.edu/">Disponible electrónicamente</a>. Electronic textbook, 2024.
+    <li> Morte Heine Sørensen y Pawel Urzyczyn. <em>Lectures on the Curry-Howard isomorphism</em>. Elsevier, 2006.
+    </ul>
+
+  </div>
+  </body>
+
