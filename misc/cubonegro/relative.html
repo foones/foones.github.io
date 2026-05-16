@@ -1,0 +1,400 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Relative clauses and lambda calculus</title>
+  <meta name="author" content="Pablo Barenbaum">
+  <meta name="keywords" content="conlang,relative clause,relative clauses,lambda calculus,SKI,combinators,unlambda,abstraction elimination,constructed language">
+  <meta name="description" content="A sketch of a constructed natural language using abstraction elimination from lambda calculus to express relative clauses.">
+  <link rel="StyleSheet" href="css.css" type="text/css">
+  <link rel="index" href="index.html">
+  <link rel="author" href="vanidad.html">
+  <link rel="contents" href="mapa.html">
+  <link rel="copyright" href="copying.html">
+  <link rel="help" href="contacto.html">
+  <link rel="up" href="cs.html">
+</head>
+<body>
+
+
+<h1><a name="arriba">Relative clauses and lambda calculus</a></h1>
+
+<a href="index.html">Home</a> / <a href="cs.html">Computer Science</a><br><br>
+
+<table width="100%"><tr valign="top">
+
+<td class="fr" width="15%">
+<small>
+<br>
+<a href="#intro">Introduction</a>.<br>
+<a href="#basics">Basics</a>.<br>
+<a href="#clauses">Relative clauses</a>.<br>
+<a href="#abselim">Abstraction elimination</a>.<br>
+<br>
+</small>
+See also:<br>
+<small>
+<a href="plefindex.html">Plefande (a conlang)</a><br><br>
+<a href="http://www.eleves.ens.fr:8080/home/madore/programs/unlambda/unlambda.html">Unlambda reference</a>
+</small>
+</td>
+
+<td width="5%">
+</td>
+
+<td width="*">
+<h2><a name="intro">Introduction</a></h2>
+<p>I've been thinking that relative clauses are just
+like functions in lambda calculus, and that abstraction
+could be eliminated using the S, K and I combinators.
+I thought about this when reading about the obfuscated
+programming language Unlambda:<br>
+
+<a href="http://www.eleves.ens.fr:8080/home/madore/programs/unlambda/unlambda.html">
+http://www.eleves.ens.fr:8080/home/madore/programs/unlambda/unlambda.html</a>
+</p>
+
+<h2><a name="basics">Basics</a></h2>
+<small><a href="#top">Top</a></small>
+
+<p>Suppose we have a language where roots are isolated
+and the only thing one can do is "applying" a root to
+another root. The functor would be the modifier and
+the arguments modified.</p>
+
+<h3>BNF syntax</h3>
+<p>Syntax would be quite simple (in a kind of BNF):</p>
+
+<code>construct ::= root | ` construct construct</code>
+
+<p>Where ` is the apply operator. ` A B reads "apply A
+to B". And every other construction would be delegated on
+semantics.</p>
+
+<h3>Some simple examples</h3>
+<p>Let's work with English words as roots for some examples
+(I'll also assume English semantics, but it is not the point):</p>
+
+<div style="left-margin: 5%">
+<p>Intransitive verbs are just applied to nouns:</p>
+<code>
+ ` write man<br>
+ the man writes
+</code>
+
+<p>Adjectives are simply intransitive verbs (just like in many
+natural languages):</p>
+<code>
+ ` white book<br>
+ the book is white = white book
+</code>
+
+<p>Of course, application is recursive:</p>
+<code>
+ ` write ` tall ` red man<br>
+ the tall red man writes
+</code>
+
+<p>Adverbs could be applied to adjectives or verbs:</p>
+<code>
+ ` ` quickly write ` ` amazingly tall man<br>
+ the amazingly tall man writes quickly
+</code>
+
+<p>Transitive verbs are (in currying fashion) verbs that
+when applied to a nominal construction (the object, maybe?)
+yields an intransitive verb that, when applied to a second
+nominal construction (the subject), yields the expected
+result:</p>
+<code>
+ ` ` write* book man<br>
+ the man writes a book
+</code>
+
+<p>Where: <code>` write* book</code> corresponds to the verb "to write-a-book".</p>
+
+<p>Notice that in the language, intransitive write and
+transitive write* should be different words (probably
+regularly related).</p>
+
+<p>Oblique constructions should be applied to the verb, too:</p>
+<code>
+ ` ` ` in sky fly plane<br>
+ the plane flies in the sky
+</code>
+
+<p>Many ambiguities dissapear:</p>
+<code>
+ ` ` see ` ` with telescope man I<br>
+ I see [a man with a telescope]<br>
+<br>
+ ` ` ` ` with telescope see man I<br>
+ I see [a man] with a telescope<br>
+<br>
+ ` ` hate ` ` and dance ` eat cheese I<br>
+ I hate [dancing and eating cheese]<br>
+<br>
+ ` ` ` and ` hate dance ` eat cheese I<br>
+ I hate dancing and I eat cheese
+</code>
+</div>
+
+<small><a href="#top">Top</a></small>
+<h2><a name="clauses">Relative clauses</a></h2>
+<small><a href="#top">Top</a></small>
+<p>Now let's analyse relative clauses. Just like adjectives can be
+interpreted like intransitive verbs or adjectives, when translated:</p>
+<code>
+ ` red book<br>
+ the book is red<br>
+<br>
+ ` ` write ` red book man<br>
+ the man writes a red book
+</code>
+
+<p>We could do the same with verbs:</p>
+<code>
+ ` ` eat cheese man<br>
+ the man eats cheese<br>
+<br>
+ ` write ` ` eat cheese man<br>
+ the man [who eats cheese] writes
+</code>
+
+<h3>Non-trivial relative clauses</h3>
+<p>When the order is the expected, there are no problems.
+But what if we want to express, say:</p>
+<code>
+ the book [the man writes] is red
+</code>
+
+<p>We cannot say:</p>
+<code>
+ ` red ` ` write man book<br>
+ the book [that writes a man] is red<br>
+ (The book is the writer).
+</code>
+
+<p>And neither:</p>
+<code>
+ ` red ` ` write book man<br>
+ the man [that writes a book] is red<br>
+ (The sense of the relative clause is ok, but "red" should modify "book", not man).
+</code>
+
+<h3>Lambda notation</h3>
+<p>We need more expressive constructions. Adopting lambda notation for
+functions (where \ pretends to be the ASCII version of a greek lowercase
+lambda):</p>
+<code>
+ (\ x : ` ` write x man)
+</code>
+
+<p>Is a construction that, when applied to an argument
+x, means "the man writes x".</p>
+
+<p>For instance:</p>
+<code>
+ ` (\ x : ` ` write x man) book<br>
+ the man writes a book<br>
+<br>
+ ` (\ x : ` ` write x man) novel<br>
+ the man writes a novel
+</code>
+
+<p>Therefore:</p>
+<code>
+ the book [the man writes] is red<br>
+<br>
+ Can be expressed as:<br>
+<br>
+ ` red ` (\ x : ` ` write x man) book
+</code>
+
+<p>Notice that if we reduce it:</p>
+<code>
+ ` red ` ` write book man
+</code>
+
+<p>It yields the previously discarded construction. Expressions
+with lambdas are not necessarily equivalent when reduced.
+Here, lambdas are precisely used to show that the modified
+root is "book" and not "man".</p>
+
+<small><a href="#top">Top</a></small>
+<h2><a name="abselim">Abstraction elimination</a></h2>
+<small><a href="#top">Top</a></small>
+<p>We could invent a way of directly translating lambda
+expressions into our conlang.</p>
+
+<p>But there is an ugly problem: the name x. In math, its said
+of x that it is a mute variable, as changing its name does
+not change the meaning of the expression.</p>
+
+<p>Fortunately, this problem has already been solved with
+the S, K and I combinators.</p>
+
+<h3>Definition of the S, K and I combinators</h3>
+
+<p>I is the identity function:</p>
+<code>
+ I = (\ x : x)<br>
+For all x:<br>
+ ` I x = x
+</code>
+
+<p>K is the constant function generator:</p>
+<code>
+ K = (\ x : (\ y : x))<br>
+For all x, y:<br>
+ ` ` K x y = x
+</code>
+
+<p>And S is the substituted application function:</p>
+<code>
+ S = (\ x : (\ y : (\ z : ` ` x z ` y z)))<br>
+For all x, y, z:<br>
+ ` ` ` S x y z =  ` ` x z ` y z
+</code>
+
+<h3>Lambda elimination</h3>
+<p>By induction, it's not hard to prove that any lambda
+expression can be reduced to an expression using these
+combinators, and without any mute variable.</p>
+
+<p>A lambda expression (\ x : e) falls into one of these three cases:</p>
+<ol>
+<li><p>e is x</p>
+<p>In this case, (\ x : e) = (\ x : x) , which is precisely I!!</p>
+
+<li><p>e is a constant, or another variable not being x</p>
+<p>In this case, (\ x : e) = (\ x : a) , which is ` K a</p>
+<code>
+Note that:
+ ` (\ x : a) b = a = ` ` K a b<br>
+</code>
+
+<li><p>e is the application ` f g:</p>
+(\ x : e) = (\ x : ` f g) , which is ` ` S (\ x : f) (\ x : g)
+(and then the we eliminate the lambda in the inner expressions
+f and g which, by induction, are simpler and we already know how
+to reduce.
+<code>
+Note that:<br>
+ ` (\ x : ` f g) b = ` ` (\ x : f) b ` (\x : g) b = ` ` ` S (\x : f) (\x : g) b
+</code>
+</ol>
+
+<h3>Rules for eliminating abstraction</h3>
+<p>A rule for mechanically eliminating abstraction in lambda
+expressions (\ x : e):</p>
+
+<p>Reading e from left to right, replace:</p>
+<code>
+ ` with ` ` S<br>
+ x with I<br>
+ any constant or variable a other than x with ` K a
+</code>
+
+<p>If more than one lambda need to be eliminated, start with
+the innermost ones first.</p>
+
+<h3>Examples</h3>
+
+<code>
+ (\ x : ` red x)
+=&gt; ` ` S ` K red I<br>
+<br>
+ We should expect:<br>
+ ` (\ x : ` red x) book<br>
+To yield the same result as:<br>
+ ` red book<br>
+<br>
+Let's reduce the expression:<br>
+ ` ` ` S ` K red I book =<br>
+= ` ` ` K red book ` I book =<br>
+= ` red ` I book = ` red book
+</code>
+
+<p>Now let's eliminate the abstraction from:</p>
+<code>
+ (\ x : ` ` write x man)<br>
+=&gt; ` ` S ` ` S ` K write I ` K man<br>
+<br>
+And let's express the original problematic sentence:<br>
+ the book [the man writes] is red<br>
+ ` red ` (\ x : ` ` write x man) book<br>
+<br>
+Reducing:<br>
+ ` red ` ` ` S ` ` S ` K write I ` K man book =<br>
+= ` red ` ` ` ` S ` K write I book ` ` K man book =<br>
+= ` red ` ` ` ` K write book ` I book ` ` K man book =<br>
+= ` red ` ` write ` I book ` ` K man book =<br>
+= ` red ` ` write book ` ` K man book =<br>
+= ` red ` ` write book man<br>
+
+(Which yields, as shown before, the correct expansion but they
+are not equivalent in the language).
+</code>
+
+<h3>Conclusion</h3>
+
+<p>The power of lambda expressions guarantees that every possible
+relative clause is expressable in this language, and that no
+ambiguities can appear in nested clauses.</p>
+
+<p>An example of a relative clause impossible in English from
+the Language Construction Kit:</p>
+
+<code>
+This is the man [my girlfriend's father is a friend of John and him] 
+
+First, let's define f (with definition as abbreviation only):
+
+f = (\ x : ` ` be ` ` of ` ` and John x friend ` ` &lt;POSS&gt;
+    ` ` &lt;POSS&gt; i girlfriend father)<br>
+` f x = my girlfriend's father is a friend of John and x
+</code>
+<p>(Notice I write the first person pronoun as "i" to avoid confusion with "I",
+the identity function! &lt;POSS&gt; is a root for possessive, where
+` ` &lt;POSS&gt; X Y = X's Y).</p>
+
+<code>
+The sentence using f:<br>
+<br>
+` ` be ` f man this<br>
+<br>
+Let's eliminate the abstraction of f:<br>
+ (\ x : ` ` be ` ` of ` ` and John x friend ` ` &lt;POSS&gt; ` ` &lt;POSS&gt;
+  i girlfriend father)<br>
+becomes:<br>
+ ` ` S ` ` S ` K be ` ` S ` ` S ` K of ` ` S ` ` S ` K and ` K John
+I ` K friend ` ` S ` ` S ` K &lt;POSS&gt; ` ` S ` ` S ` K &lt;POSS&gt; ` K i
+` K girlfriend ` K father<br>
+<br>
+Then, the whole sentence:<br>
+<br>
+` ` be ` ` ` S ` ` S ` K be ` ` S ` ` S ` K of ` ` S ` ` S ` K and
+` K John I ` K friend ` ` S ` ` S ` K &lt;POSS&gt; ` ` S ` ` S ` K &lt;POSS&gt;
+` K i ` K girlfriend ` K father man this
+</code>
+
+<p>Which is a bit quite long. Some tricks could be used to make it shorter.
+There's much more about it in the Unlambda reference.</p>
+
+<p>These kilometric expressions make me believe this is probably violating
+a language universal, in the sense that it is counter-intuitive. Anyway,
+at least for me, it is an interesting theoretical exercise.</p>
+
+<p>To create a real conlang, the apply operator should be grammaticalized
+somehow (as an inflection, syntactically, etc.). I leave the rest as an
+exercise to the conlang world.</p>
+<small><a href="#top">Top</a></small>
+</td>
+
+</tr></table>
+<hr noshade>
+<small>Pablo Barenbaum</small><br>
+<small><a href="contacto.html">Tell me</a> what you think of this site.</small>
+</body>
+</html>

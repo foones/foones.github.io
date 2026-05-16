@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Obfuscated programming languages</title>
+  <link rel="StyleSheet" href="css.css" type="text/css">
+  <meta name="author" content="Pablo Barenbaum">
+  <meta name="keywords" content="weird,obfuscated,programming,programming language,paradigms,intercal,unlambda,befunge,brainf***">
+  <link rel="index" href="index.html">
+  <link rel="author" href="vanidad.html">
+  <link rel="contents" href="mapa.html">
+  <link rel="copyright" href="copying.html">
+  <link rel="help" href="contacto.html">
+  <link rel="up" href="cs.html">
+</head>
+<body>
+<h1><a name="top">Obfuscated programming languages</a></h1>
+<a href="index.html">Home</a> / <a href="cs.html">Computer Science</a>
+<table width="100%"><tr valign="top">
+
+<td class="fr" width="15%">
+<p>Links</p>
+<p><small>An <a href="unlambda.html">unlambda interpreter</a>.</small></p>
+</td>
+
+<td width="10%">
+</td>
+
+<td width="*">
+<p>Obfuscated programming languages are those that were designed using strange paradigms, uncommon features or that simply were intended to bother the programmer.</p>
+<p>I'm a programming language lover; I design and implement strange languages just for fun. And I can tell that both implementing and programming in one of those languages is an enlightening experience.</p>
+<p>As far as I know, the first obfuscated language was <a href="http://www.catb.org/~esr/intercal/">Intercal</a>, designed by Donald Woods and James Lyon in 1972. Interesting features are the need of a script to have certain level of politeness (you should ask 'PLEASE ...' or 'PLEASE DO ...'); it's logical operators, which work as nothing one has ever seen before; the possibility of "forgetting", "ignoring" and "abstaining from" a command, to express conditional execution (the language has no IF's or WHILE's); the feature of printing numbers in roman numerals and, in the recent C port by ESR, the mythic 'COME FROM' command. It's quite good a non-standard language, as a joke, and also challenging to program in; by no means is it the weirdest.</p>
+<p>To me, - though this isn't a flame to other weird languages - the most interesting ones are Befunge and Unlambda, maybe because they are closer to serious experiments than to jokes. (I consider the HQ9+ language to be a good joke, which only prints "hello world" if the input is H, a quine or self-reproduction of the script if the input is Q, and the "99 bottles of bear" song if the input is 9; canonical things to be programmed).</p>
+<p>Befunge is a language of the <a href="http://staff.xmms.org/zinx/misc/spec98.html">fungeoid</a> family. These are stack-based languages that allow the program counter to move not only forward, but in different directions in a space (a delta vector is added to the position vector); where the space may be a cartesian one (unefunge is unidimensional; befunge, bidimensional and trefunge, tridimensional) or not (the creator suggests also hex-net topologies and Klein-bottles). It is quite easy to write an interpreter for a fungeoid. Programming in one of them really teaches how to program using stacks as the only resource.</p>
+<p><a href="http://www.eleves.ens.fr:8080/home/madore/programs/unlambda/unlambda.html">Unlambda</a> is an obfuscated functional language, based in the S and K combinators, core of the lambda calculus. In this case, writing an interpreter is a challenge that makes one face the most common problems while implementing functional languages: first class functions, closures, recursion in non tail-recursive languages, call/cc, evaluation delay, garbage collection. Programming in Unlambda is also enlightening, when you finally get how to.</p>
+<p>Notice that a common feature of Unlambda and Befunge is the absence of variables. In my humble opinion, imperative language programmers are too tied to variables. These languages (and their serious counterparts: Forth and the Lisp family) show that there's no real need of them.</p>
+
+<small><a href="#top">Top</a></small>
+
+</td>
+
+</tr></table>
+
+<hr noshade>
+<small>Pablo Barenbaum</small><br>
+<small><a href="contacto.html">Tell me</a> what you think of this site.</small>
+
+</body>
+</html>

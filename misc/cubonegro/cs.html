@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Computer Science</title>
+  <link rel="StyleSheet" href="css.css" type="text/css">
+  <link rel="index" href="index.html">
+  <link rel="author" href="vanidad.html">
+  <link rel="contents" href="mapa.html">
+  <link rel="copyright" href="copying.html">
+  <link rel="help" href="contacto.html">
+</head>
+<body>
+<h1><a name="top">c.s. {</a></h1>
+<a href="index.html">Home</a>
+
+<table width="100%"><tr valign="top">
+<td width="15%" class="fr">
+<p><a href="#arts">articles</a></p>
+<p><a href="#lpjs">linguo-projects</a></p>
+<p><a href="#mpjs">misc projects</a></p>
+<p><a href="#abrt">abortive attempts</a></p>
+<p><a href="#trns">english-&gt;spanish</a></p>
+</td>
+
+<td width="5%">
+</td>
+
+<td width="*">
+<h2><a name="arts">brief articles</a></h2>
+<small><a href="#top">Top</a></small>
+<p><a href="weird.html">Obfuscated programming languages</a>.</p>
+<p><a href="relative.html">Relative clauses in constructed languages and lambda calculus</a>.</p>
+<small><a href="#top">Top</a></small>
+
+<h2><a name="lpjs">linguo-projects</a></h2>
+<small><a href="#top">Top</a></small>
+<p>For language implementations in C, I've used Hans Boehms' Conservative Garbage
+Collector.</p>
+
+<h3>Unlambda interpreter</h3>
+<p>An <a href="unlambda.html">Unlambda Interpreter</a> in C. It was one
+of my first interpreters. I keep it here mostly for (personal) historical
+reasons. It sucks hard.</p>
+
+<h3>Funes</h3>
+<p>Funes is a dialect of Lisp I'm creating.
+The sources (C + bison + flex) come in a <a href="funes.tar.gz">gzipped tarball</a>
+(for direct compilation in Linux) or a somewhat older <a
+href="funes.zip">zip</a>, which includes a precompiled Windows binary and the
+sources.</p>
+<p>I've compiled it successfully under Linux and Windows.
+However, some problems may arise due to an ugly hack on flex. There are
+lots of things to do; many nonworking and undocumented features.</p>
+<p>Funes compiles to object code for an ad hoc virtual machine and then interprets it.
+Currently it features: single namespace, tail call elimination, non-first-class
+non-hygienic macros (&agrave; la Common Lisp), Python-like introspection on
+environments, a very Pythonic (yet incomplete) module system, a bigger-than-Scheme
+smaller-than-Common-Lisp standard library. Continuations are not
+first class: though powerful, that's an implementation headache.</p>
+<p>I'm not working on Funes anymore. I plan to make a whole
+rewrite of it, somewhere in the future.</p>
+<p>The name Funes comes from Ireneo Funes, the name of the main
+character in one of Jorge Luis Borges tales in Ficciones: <i>Funes, el memorioso</i>
+(Funes, the memorious). The language ows its name in part to the
+lack of a garbage collector (thus, very "memorious") and also to
+the operator <b>fun</b>, equivalent to <b>lambda</b> in most
+Lisps.</p>
+<p>There is also a <a href="furef.html">Funes Reference</a> (sorry, in Spanish).</p>
+
+<h3>The Sorcho Kang Programming Language</h3>
+<p>While coursing <i>Algoritmos y Estructuras de Datos I</i> (Algorithms and
+Data Structures I), I wrote this dirty interpreter for a bizarre mixture of [a
+tiny subset of] Haskell and Befunge: <a href="sorcho.zip">Sorcho Kang</a>.</p>
+<p>Just like in Funes, the zip includes a precompiled Windows binary and
+portable sources (C + bison + flex).</p>
+<p>Sorcho Kang was an attempt to implement a language with pattern matching and lazy
+evaluation, and avoid having built-in functions and types (Haskelly, everything
+should be defined in the prelude). The only built-in functions and types are in
+the Befungical part of the language, and all relate to integer arithmetic.</p>
+<p>The name Sorcho Kang is a composition of "Sorcho" (which means nothing really
+but in Spanish sounds like a bad quality thing) and "Kang" (the name of one
+of the two aliens in The Simpsons, Kodos' partner).</p>
+
+<h3>Hume</h3>
+<p><a href="hume.zip">Hume</a> is a very tiny language based on a cool idea: rewriting
+systems. (Actually, only after reinventing this I was told it was called
+"rewriting"...).</p>
+<p>The zip includes the sources in Scheme (originally written for Guile,
+but easily portable) and a Windows binary (compiled with Gambit).</p>
+<p>Hume is more a mathematical computing model than a useful language.
+An expression in Hume may be: a constant, a variable or an application
+(one or more ordered expressions surrounded by parentheses, each of one
+is referred to as ``the n-th component'' of the expression).
+Hume is Turing complete, which is quite easy to show using the SKI combinators.</p>
+<p>I named it Hume for the English empirist philosopher David Hume, whose
+ideas are very clear and neat, IMHO.</p>
+<p>Given expressions e1, e2; e1 matches with e2 iff: (1) e1 and e2 are
+the same constant, or (2) e1 is a variable, or (3) e1 and e2 are applications
+with the same number of components, and each component of e1 matches the
+corresponding component of e2.</p>
+<p>A variable e1 appears in the expression e2 iff e2 is the same
+variable, or e2 is an application and there exists a component of e2
+such that e1 appears in e2.</p>
+<p>A substitution is a set of pairs (variable, expresion) such that
+there is no more than one pair with certain variable as its first
+component.</p>
+<p>Given a substitution S and the expression e1, substituting
+e1 with S is replacing, for all variable V, every appearance of V
+in e1 with the expression which is the second component of the pair
+whose first component is V in the substitution. Phew...</p>
+<p>If e1 matches e2, the unification of the expressions e1, e2 is the
+substitution S such that substituting e1 with S yields e2.</p>
+<p>An equation is a pair of expressions, the second of which satisfies that
+every variable that appears in it, also appears in the first expression of
+the equation.</p>
+<p>Given a list of equations L, the matching equation of an expression e
+is the first equation such that it first component matches e.</p>
+<p>Given a list of equations L and an expression e, e is in normal form
+iff there is no matching equation.</p>
+<p>Given a list of equations L, the one-step reduction of an expression e,
+if e is not in normal form, is the result of substituting the second
+component of the matching equation with the unification of the first
+component of the matching equation and e.</p>
+<p>Given a list of equations L and an expression e, the reduction
+of an expression in normal form is the expression itself; the reduction
+of an expression not in normal form is the reduction of the one-step
+reduction of e.</p>
+<small><a href="#top">Top</a></small>
+
+<h3>Azag-Thoth</h3>
+<p>While coursing <i>Algoritmos y Estructuras de Datos II</i> (Algorithms and
+Data Structures II), I wrote an interpreter for a subset of the specification
+language we used. There's more information (in Spanish) <a href="azag.html">here</a>.</p>
+
+<h2><a name="mpjs">misc projects</a></h2>
+<small><a href="#top">Top</a></small>
+
+<h3>Magic square generator</h3>
+<p><a href="cube.txt">This</a> is a [very very] dirty script in C
+which prints all the 4x4 magic squares with the numbers from
+1 to 16 to the standard output. Reflection and rotation distinguishes
+squares. Magicality is determined by the sum of rows, columns, diagonals
+and the four quadrants of the square.</p>
+<p>WARNING - WARNING: it's written in a more than poor style,
+maybe I should submit it to the Obfuscated C Contest?</p>
+
+<small><a href="#top">Top</a></small>
+
+<h2><a name="abrt">abortive attempts</a></h2>
+<small><a href="#top">Top</a></small>
+<h3>Xul</h3>
+<p>A Pythonic Perlic Rubyc sketch of a programming
+glossa. Yet another scripting language.</p>
+<small><a href="#top">Top</a></small>
+
+<h2><a name="trns">spanish translations</a></h2>
+<small><a href="#top">Top</a></small>
+<p><a href="antims.html">P&aacute;gina Anti Micro$oft</a>, traducci&oacute;n de un art&iacute;culo de David Madore.</p>
+<small><a href="#top">Top</a></small>
+
+</td>
+
+</tr></table>
+<h1>}</h1>
+
+<hr noshade>
+<small>Pablo Barenbaum</small><br>
+<small><a href="contacto.html">Tell me</a> what you think of this site.</small>
+
+</body>
+</html>

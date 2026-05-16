@@ -1,0 +1,223 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<h1>fruit-o-matic</h1>
+<div id="fruta"></div>
+
+<script type='text/javascript'>
+
+function choice(a) {
+  return a[Math.floor(Math.random() * a.length)];
+}
+
+function gen(start, gram) {
+  res = "{" + start + "}";
+
+  while (true) {
+    var i, f;
+    i = res.search("{");
+    f = res.search("}");
+    if (i == -1 || f < i) break;
+
+    n = res.substring(0, i);
+    ps = gram[res.substring(i + 1, f)];
+    if (typeof ps != "undefined") {
+      n += choice(ps);
+    }
+    n += res.substring(f + 1, res.length);
+    res = n; 
+  }
+  return res;
+}
+
+_gram = {
+  "Af": ["\"{Or}\", {Afirma} {Nombre}",
+         "{Adversativa}{Nombre} {Afirma_que} {Or}",
+         "{Adversativa}{El_tema_es} {Nom}",
+         "{Adversativa}{El_tema_es} {Relacion}",
+         "{Adversativa}{Nombre} {usa el término} \"{Nom}\" {para referirse a X}",
+         "{Adversativa}{Nombre} no {usa el término} \"{Nom}\" {para referirse a X}, sino {para referirse a X}",
+         "{Conclusiva} {protasis}, {apodosis}",
+         "{Conclusiva} la premisa básica de {teoría} es que {Or}",
+         "{Conclusiva} {Pref}la premisa básica de {teoría} es que {Or}",
+         "{En su obra}{Nombre} {promueve el uso de} {teoría} {para conseguir X}"
+        ],
+
+  "En su obra": ["", "en {Nombre obra}, "],
+  "Nombre obra": ["<i>{título}</i>"],
+  "título": ["Platón", "Cielo y Tierra", "JFK", ],
+  "promueve el uso de": ["promueve el uso de", "afirma", "niega"],
+  "para conseguir X": ["para deconstruir {Nom}"],
+
+  "si se analiza": ["si se analiza"],
+  "Adversativa": ["", "no obstante, ", "sin embargo, ",
+                  "en cualquier caso, ", "aun así, ", "de alguna manera, "],
+  "Conclusiva": ["por lo tanto,", "por consiguiente,", "de este modo,", "en tal caso,"],
+  "protasis": [ "{Pref}{si se analiza} {teoría}",
+                "{Pref}{si se da la hipótesis}"],                 
+  "apodosis": [
+    "hay dos conclusiones posibles: o bien {Or}, o bien {Or}",
+    "se presenta la disyuntiva de admitir que {Or}, o bien que {Or}",
+    "uno se enfrenta a una elección: o bien rechazar {teoría}, o concluir que {Or}",
+    "puede concluirse que {Or}", "puede admitirse que {Or}",
+    "debe concluirse que {Or}", "debe admitirse que {Or}"
+   ],
+   "si se da la hipótesis": [
+     "si se cumplen las hipótesis expuestas en {una obra}"
+   ],
+   "Pref": ["", "podría decirse que ", "no sería aventurado afirmar que "],
+  
+
+  "Or": ["{OrS}"],
+
+  "Afirma": ["afirma", "postula"],
+  "Afirma_que": ["{Afirma} que"],
+
+  "El_tema_es": ["{el tema principal} en {una obra} es",
+                 "en {una obra}, {el tema principal} es"],
+  "una obra": ["la obra de {Nombre}{sobre_X}", "los trabajos de {Nombre}{sobre_X}",
+               "el ensayo de {Nombre}{sobre_X}", "los ensayos de {Nombre}{sobre_X}",
+               "el análisis de {Nombre}{sobre_X}"],
+  "sobre_X": ["", " sobre {Nom}", " acerca de {Nom}"],
+  "el tema principal": ["el tema principal",
+   "un concepto predominante", "uno de los temas principales",
+   "uno de los temas más importantes", "uno de los conceptos más importantes",
+   "uno de los conceptos principales", "el tema predominante"],
+
+  "usa el término": ["{usa} {el término}"],
+  "usa": ["utiliza", "usa", "hace uso de"],
+  "el término": ["el término", "la expresión"],
+  "para referirse a X": ["para referirse a {Nom}", "para denotar {Nom}",
+    "como sinónimo de {Nom}", "en oposición a {Nom}",
+    "con el significado de \"{Nom}\"", "para señalar que {Or}"],
+
+  "teoría": ["el {TeoSM} {AdjSM}", "la {TeoSF} {AdjSF}"],
+  "TeoSM": ["capitalismo", "modernismo"],
+  "TeoSF": ["lingüística"],
+
+  "Relacion": ["la relación{fruta_rel} entre {Nom} y {Nom}",      
+               "la distinción{fruta_rel} entre {Nom} y {Nom}"],
+  "fruta_rel": ["", " dialéctica", " antinómica"],
+
+  "Nom2": ["{DetSM} {SustSM2}", "{DetSF} {SustSF2}"],
+
+  "Nom": ["{NomS}"],
+
+  "NomS": ["{NomSM}", "{NomSF}"],
+
+  // S
+  "OrS": ["{OrCopul}", "{OrCopul}", "{OrCopul}",
+          "{NomS} sugiere que {OrCopul}",
+          "{NomS} se incorpora a {NomS}",          
+         ],
+
+  "OrCopul": ["{OrCopulSM}"],
+
+
+  // SM
+  "OrCopulSM": ["{NomSM} {CopulSM} {NomSM}",
+"{NomSM} {CopulSM} {NomSM}",
+"{NomSM} {CopulSM} {NomSM}",
+"{NomSM} {CopulSM} {NomSM}",
+"{NomSM} {CopulSM} {NomSM}",
+"{NomSM} {está creado por} {quiénes}"],
+  "NomSM": ["{DetSM} {NucNomSM}"],
+  "DetSM": ["el"],
+  "CopulSM": ["es{Adverbiamente}", "proviene{Adverbiamente} de",
+              "está{Adverbiamente} relacionado con", "se encuentra{Adverbiamente} en",
+              "se relaciona{Adverbiamente} con", "se diferencia{Adverbiamente} de",
+              "implica{Adverbiamente}"],
+  "NucNomSM": ["{SustSM2}", "{SustSM2}", "{SustSM2}", "{NucNomSM1} de {Nom2}",
+               "{SustSM2}", "{SustSM2}", "{SustSM2}", "{NucNomSM1} de {Nom2}",
+               "{SustSM2}", "{SustSM2}", "{SustSM2}", "{NucNomSM1} de {Nom2}",
+               "{SustSM2}", "{SustSM2}", "{SustSM2}", "{NucNomSM1} de {Nom2}",
+               "papel de {NomSM} como {ActorSM}",
+               "papel de {NomSF} como {ActorSF}"],
+  "NucNomSM1": ["{SustSM1} {AdjSM}", "{SustSM1}", "{SustSM1}", "{SustSM1}"],
+  "SustSM1": ["principio", "carácter", "motivo", "fundamento", "paradigma",
+              "colapso", "significado", "objetivo"],
+  "SustSM2": ["discurso", "sujeto", "objeto", "inconsciente colectivo", "lenguaje",
+              "compromiso"],
+  "AdjSM": ["{Movista}", "post{Movista}", "pre{Movista}",
+            "{Caracteral}", "sub{Caracteral}", "super{Caracteral}", "neo{Caracteral}",
+            "{Accionante}", "auto-{Accionante}",
+            "semántico", "social"],
+  "ActorSM": ["observador"],
+
+  "está creado por": ["es una construcción de", "está creado por",
+                      "es una creación de", "está construído por"],
+  "quiénes": ["las masas", "el espectador"],
+
+  "Movista": ["modernista", "semiótico", "capitalista", "materialista", "estructuralista"],
+  "Caracteral": ["cultural", "textual", "dialéctico", "estructural"],
+  "Accionante": ["justificante"],
+  "Adverbiamente": ["", "", "", "", " {Adverbiamente1}"],
+  "Adverbiamente1": ["necesariamente", "fundamentalmente"],
+
+  // SF
+  "OrCopulSF": ["{NomSF} {CopulSF} {NomSF}",
+"{NomSF} {CopulSF} {NomSF}",
+"{NomSF} {CopulSF} {NomSF}",
+"{NomSF} {CopulSF} {NomSF}",
+"{NomSF} {CopulSF} {NomSF}", "{NomSF} {está creada por} {quiénes}"],
+  "NomSF": ["{DetSF} {NucNomSF}"],
+  "DetSF": ["la"],
+  "CopulSF": ["es{Adverbiamente}", "proviene{Adverbiamente} de",
+              "está{Adverbiamente} relacionada con", "se encuentra{Adverbiamente} en",
+              "se relaciona{Adverbiamente} con", "se diferencia{Adverbiamente} de",
+              "implica{Adverbiamente}"],
+  "NucNomSF": ["{SustSF2}", "{SustSF2}", "{SustSF2}", "{NucNomSF1} de {Nom2}",
+               "{SustSF2}", "{SustSF2}", "{SustSF2}", "{NucNomSF1} de {Nom2}",
+                "{SustSF2}", "{SustSF2}", "{SustSF2}", "{NucNomSF1} de {Nom2}",
+                "{SustSF2}", "{SustSF2}", "{SustSF2}", "{NucNomSF1} de {Nom2}",
+               "función de {NomSM} como {ActorSM}",
+               "función de {NomSF} como {ActorSF}"],
+  "NucNomSF1": ["{SustSF1} {AdjSF}", "{SustSF1}", "{SustSF1}", "{SustSF1}"],
+  "SustSF1": ["idea", "situación", "teoría", "característica fundamental", "expresión"],
+  "SustSF2": ["identidad", "neoteoría", "paradoja", "clase", "totalidad"],
+  "AdjSF": ["{MovistaF}", "post{MovistaF}", "pre{MovistaF}",
+            "{CaracteralF}", "sub{CaracteralF}", "super{CaracteralF}", "neo{CaracteralF}",
+            "{AccionanteF}", "auto-{AccionanteF}",
+            "semántica", "social", "mitopoética"],
+  "ActorSF": ["observadora", "creadora"],
+  "está creada por": ["es una construcción de", "está creada por",
+                      "es una creación de", "está construída por"],
+
+  "MovistaF": ["modernista", "semiótica", "capitalista", "materialista", "estructuralista"],
+  "CaracteralF": ["cultural", "textual", "dialéctica", "estructural"],
+  "AccionanteF": ["justificante"],
+
+  "Nombre": ["Levi-Strauss", "Heidegger", "Gadamer", "Derrida", "Kuhn",
+             "Wittgenstein", "Lyotard", "Foucault", "Baudrillard",
+             "Deleuze", "Sontag", "Scuglia", "Geoffrey", "Eco",
+             "Marx"]
+};
+
+function alfabetico(n) {
+  return (n >= "a".charCodeAt(0) && n <= "z".charCodeAt(0))
+      || (n >= "A".charCodeAt(0) && n <= "Z".charCodeAt(0));
+}
+
+function may(x) {
+  var res;
+  res = "";
+  i = 0;
+  while (i < x.length && !alfabetico(x.charCodeAt(i))) {
+    res += x.substring(i, i + 1);
+    ++i;
+  }
+  res += x.substring(i, i + 1).toUpperCase() + x.substring(i + 1, x.length);
+  return res;
+}
+
+function fixContr(x) {
+  return x.replace(/ de el /g, " del ").replace(/ a el /g, " al ");
+}
+
+function mkfruta() {
+  document.getElementById("fruta").innerHTML +=
+    "<p>" + may(fixContr(gen("Af", _gram))) + ".</p>";
+}
+
+mkfruta();
+setInterval('mkfruta()', 3000);
+
+</script>

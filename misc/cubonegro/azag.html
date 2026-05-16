@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>Azag Thoth</title>
+  <link rel="StyleSheet" href="estilo.css" type="text/css">
+  <meta name="author" content="Pablo Barenbaum">
+  <link rel="index" href="index.html">
+  <link rel="author" href="vanidad.html">
+  <link rel="contents" href="mapa.html">
+  <link rel="copyright" href="copying.html">
+  <link rel="help" href="contacto.html">
+</head>
+<body>
+<h1>Azag Thoth <small>- un int&eacute;rprete para el lenguaje de Algo 2</small></h1>
+<a href="index.html">Principal</a>
+<h2>Bajar</h2>
+<p>Bajar el int&eacute;rprete: precompilado para Windows
+<a href="az.zip">az.zip</a> (~97Kb); fuentes <a href="azsrc.zip">azsrc.zip</a>
+(~25Kb).</p>
+
+<h2>Azag Thoth mediante ejemplos</h2>
+<h3>Ejemplo m&iacute;nimo</h3>
+<p>Guardar lo siguiente en un archivo "fact.az".</p>
+<pre>
+TAD fact
+axiomas:
+  fact(n) := if n = 0 then 1 else n * fact(n-1) fi;
+Fin TAD
+</pre>
+<p>Nota: &#161;esto no es un TAD! Pero es mucho m&aacute;s
+f&aacute;cil introducir el lenguaje as&iacute;.</p>
+<p>Ejecutar el int&eacute;rprete d&aacute;ndole "fact" como
+argumento (sin la extensi&oacute;n): <code>azag fact</code>.</p>
+<p>En el int&eacute;rprete escribir: <code>fact(5)</code>. Si
+el int&eacute;rprete imprime <code>120</code>, bien.</p>
+<p>Otra nota: por defecto, se exportan todas las funciones
+de un TAD, por eso no es necesaria la cl&aacute;usula
+exportar en este caso.</p>
+
+<h3>Restricciones</h3>
+<p>Como <code>fact</code> no es un constructor ni un observador,
+las restricciones se ponen en la parte de "otras funciones", as&iacute;:</p>
+<pre>
+TAD fact
+funciones:
+  fact(n) : nat -&gt; nat          {n &gt;= 0}
+axiomas:
+  fact(n) := if n = 0 then 1 else n * fact(n-1) fi;
+Fin TAD
+</pre>
+<p>Notar que: los axiomas llevan punto y coma al final, las signaturas
+no.</p>
+<p>Salir del int&eacute;rprete (con <code>salir</code>, <code>quit</code>, <code>exit</code>, <code>bye</code> o <code>chau</code>) y empezarlo de nuevo: <code>azag fact</code>.</p>
+<p>Probar <code>fact(-1)</code>. Ahora deber&iacute;a decir que no
+se cumple la restricci&oacute;n sobre los argumentos. (Si lo
+prob&aacute;bamos antes, entraba en un ciclo infinito y terminaba
+con un error seguramente de lo m&aacute;s feo).</p>
+<p>Nota: por cuestiones de pedorridad de implementaci&oacute;n, las signaturas
+son b&aacute;sicamente <b>comentarios</b>. S&oacute;lo tienen relevancia:
+las restricciones (para funciones y observadores) y la aridad (para constructores).
+Usarlas bien o mal depende del programador, no estoy fan&aacute;ticamente
+a favor ni en contra de su buen uso.</p>
+
+<h3>Constructores</h3>
+<p>Definici&oacute;n inductiva de una bola de mocos: una bola de mocos es
+una bola de mocos vac&iacute;a, o bien un moco verde pegado a una bola,
+o bien un moco rojo pegado a una bola.</p>
+<p>Crear el archivo bolademocos.az con el siguiente contenido:</p>
+<pre>
+TAD bolademocos
+exporta: bmvacia, pegaverde, pegarrojo
+constructores:
+  bmvacia : -&gt; bolademocos
+  pegaverde : bolademocos -&gt; bolademocos
+  pegarrojo : bolademocos -&gt; bolademocos
+Fin TAD
+</pre>
+
+<p>Iniciar el int&eacute;rprete (<code>azag bolademocos</code>).
+Probar qu&eacute; pasa con las expresiones: <code>bmvacia()</code>,
+<code>pegaverde(bmvacia())</code>, <code>pegarrojo(pegarrojo(pegaverde(bmvacia())))</code>,
+etc.).</p>
+<p>Deber&iacute;a resultar en el mismo texto que se introduce. (Aunque
+en realidad una es notaci&oacute;n para la expresi&oacute;n
+que construye la bola, y la otra es la notaci&oacute;n para mostrar la
+bola misma).</p>
+<p>Nota: los constructores son funciones nularias; <code>bmvacia</code> es el
+<b>constructor</b> (i.e. la funci&oacute;n), para construir es necesario
+indicar que se llama a esa funci&oacute;n: <code>bmvacia()</code></p>
+
+<h3>Observadores</h3>
+<p>Agregar la cl&aacute;usula de observadores, y agregarlos como
+s&iacute;mbolos a exportar, para que el archivo quede as&iacute;:</p>
+
+<pre>
+TAD bolademocos
+exporta: bmvacia, pegaverde, pegarrojo,
+	 bmvacia?, primeroverde?, primerorrojo?, otrosmocos
+constructores:
+  bmvacia : -&gt; bolademocos
+  pegaverde : bolademocos -&gt; bolademocos
+  pegarrojo : bolademocos -&gt; bolademocos
+observadores:
+  bmvacia? : bolademocos -&gt; bool
+  primeroverde?(b) : bolademocos -&gt; bool        {~bmvacia?(b)}
+  primerorrojo?(b) : bolademocos -&gt; bool        {~bmvacia?(b)}
+  otrosmocos(b) : bolademocos -&gt; bolademocos    {~bmvacia?(b)}
+axiomas:
+  bmvacia?(bmvacia()) := true;
+  bmvacia?(pegaverde(b)) := false;
+  bmvacia?(pegarrojo(b)) := false;
+
+  primeroverde?(pegaverde(b)) := true;
+  primeroverde?(pegarrojo(b)) := false;
+  
+  primerorrojo?(pegaverde(b)) := false;
+  primerorrojo?(pegarrojo(b)) := true;
+
+  otrosmocos(pegaverde(b)) := b;
+  otrosmocos(pegarrojo(b)) := b;
+Fin TAD
+</pre>
+
+<p>Probar alg&uacute;n ejemplo.</p>
+<p>Nota: La virgulilla <code>~</code> es el "no l&oacute;gico" (dado
+true, devuelve false y viceversa).</p>
+<p>Otra nota: <b>todas</b> las funciones pueden hacer pattern matching.
+Sin embargo, entiendo que en Algo 2 la idea es que s&oacute;lo los observadores
+hagan pattern matching y el resto de las funciones se definan en base a &eacute;stos.</p>
+
+<h3>Igualdad observacional</h3>
+<p>Lo bueno de poner observadores (signaturas con restricciones + funciones)
+es que la igualdad observacional se define sola.</p>
+<p>(Con muuucho cuidado: esto vale solamente cuando los observadores son unarios
+y el argumento es el elemento del TAD en cuesti&oacute;n; si no, todo depende
+de cuantificadores universales, dif&iacute;ciles de tratar).</p>
+<p>Probar, por ejemplo <code>bmvacia() = bmvacia()</code>,
+<code>pegarrojo(bmvacia()) = bmvacia()</code>, etc.</p>
+
+<h3>Agregando m&aacute;s funciones</h3>
+<p>Hagamos una funci&oacute;n que transforme la bola de mocos en una
+lista que tenga 1 para los mocos verdes y 2 para los rojos.</p>
+<p>Agregar la siguiente cl&aacute;usula, despu&eacute;s de la l&iacute;nea
+<code>TAD bolademocos</code>:</p>
+<pre>
+usa: secuencia
+</pre>
+<p>Agregar <code>bola2secu</code> a la lista de s&iacute;mbolos a exportar.</p>
+<p>Agregar la cl&aacute;usula "otras funciones", con la signatura correspondiente:</p>
+<pre>
+funciones:
+  bola2secu : bolademocos -&gt; secuencia(nat)
+</pre>
+<p>Agregar los axiomas que falten:</p>
+<pre>
+  bola2secu(b) := if bmvacia?(b) then &lt;&gt;
+                  else
+		    if primeroverde?(b) then 1 else 2 fi . bola2secu(otrosmocos(b))
+	          fi;
+</pre>
+<h3>&#191;Quieres seguir por tu cuenta?</h3>
+<p>Jajaja, qu&eacute; buena broma.</p>
+<hr noshade>
+<small><a href="contacto.html">Contact&aacute;me</a></small>
+</body>
+</html>

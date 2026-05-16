@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <title>M&uacute;sica plebensa</title>
+  <link rel="StyleSheet" href="estilo.css" type="text/css">
+  <meta name="author" content="Pablo Barenbaum">
+  <meta name="keywords" content="musica,tonal,microtonal,dodecafonia,raga,india,octava,escala,etnica,semitono,tono,acorde,nota,frecuencia">
+  <link rel="index" href="index.html">
+  <link rel="author" href="vanidad.html">
+  <link rel="contents" href="mapa.html">
+  <link rel="copyright" href="copying.html">
+  <link rel="help" href="contacto.html">
+  <link rel="up" href="plefindex.html">
+</head>
+<body>
+<h1><a name="arriba">
+M&uacute;sica plebensa <small>- un experimento...</small></a></h1>
+<a href="index.html">Principal</a> / <a href="plefindex.html">Plefande</a>
+<table><tr><td valign="top" width="20%">
+<small>
+<br>
+<a href="#intro">Introducci&oacute;n</a><br>
+<a href="#plebmus">M&uacute;sica plebensa</a><br>
+<br>
+<b>Links de inter&eacute;s:</b><br>
+<a href="tuvan.html">Canto como un tuvano</a>, escuch&aacute;me.<br>
+<br>
+<a href="http://www.xs4all.com/~huygensf/scala">Scala</a>, un programa para hacer m&uacute;sica microtonal.<br>
+<br>
+<a href="http://valdyas.org/andal/music/introduction.html">The Charyan Octave</a> - m&uacute;sica de la cultura de Boudewijn Rempt.<br>
+</small>
+</td>
+<td valign="top">
+<h2><a name="intro">Introducci&oacute;n</a></h2>
+<a href="#arriba"><small>Arriba</small></a>
+<p>El sonido est&aacute; determinado por tres caracter&iacute;sticas: la intensidad (o "volumen"), la frecuencia (o "nota") y el timbre (esto es lo que diferencia el sonido de un viol&iacute;n del de una flauta).</p>
+<p>Como demostr&oacute; Fourier, todo sonido puede expresarse como una funci&oacute;n suma de funciones peri&oacute;dicas. En t&eacute;rminos de ondas, la intensidad corresponde a la amplitud, el timbre a la forma de la onda y la frecuencia... a la frecuencia. Si bien la intensidad y el timbre son cualidades muy importantes a la hora de componer, la frecuencia tiene un papel fundamental:</p>
+<p>T&eacute;cnicamente, la frecuencia se mide en Hertz (Hz; ciclos o "vueltas" por segundo); cuanto m&aacute;s alta la frecuencia, m&aacute;s agudo el sonido. Por ejemplo, si se interrumpe un flujo de aire doscientas veces por segundo se obtiene un sonido de 200 Hz. El o&iacute;do humano puede llegar a percibir frecuencias desde los 16 a los 20.000 Hz, aproximadamente.</p>
+<p>Entre dos sonidos de distinta frecuencia, hay un intervalo ("espacio" o distancia); se denomina octava al intervalo comprendido entre una cierta frecuencia y el doble de esa frecuencia. Por ejemplo, entre un sonido de 200 Hz y uno de 400 Hz hay un intervalo de octava; lo mismo entre uno de 400 Hz y uno de 800 Hz, etc&eacute;tera. N&oacute;tese que los intervalos crecen exponencialmente, en la forma 2<sup>x</sup>; no linealmente. Dos sonidos con frecuencia distanciada por una octava corresponden a la misma nota. Por ejemplo, un la grave tiene una frecuencia de 220 Hz; el siguiente la (en un piano, por ejemplo) tendr&aacute; una frecuencia de 440 Hz, el siguiente de 880 Hz y as&iacute; sucesivamente.</p>
+<p>Pero, como bien sabemos, en nuestra escala occidental, hay mucho m&aacute;s que una sola nota.</p>
+<p>Aunque no es tan estrictamente cierto, podr&iacute;mos afirmar que la octava es el &uacute;nico intervalo que surge naturalmente. Es un hecho que todas las culturas que han hecho m&uacute;sica, han descubierto el intervalo de octava: lo que var&iacute;a es la subdivisi&oacute;n de &eacute;sta. El o&iacute;do humano, con algo de pr&aacute;ctica, consigue distinguir unas seiscientas frecuencias entre la fundamental y la octava; claro que, a menos que se disponga de herramientas como los sintetizadores electr&oacute;nicos, es casi imposible fabricar instrumentos con esas capacidades ac&uacute;sticas; imagino que tambi&eacute;n ser&iacute;an dif&iacute;ciles de ejecutar. Cantar microtonalmente tambi&eacute;n resulta muy complicado, pero quiz&aacute; sea una cuesti&oacute;n m&aacute;s cultural que f&iacute;sica.</p>
+<p>Uno podr&iacute;a utilizar un sistema exponencial para notar las frecuencias de los sonidos, pero no resulta c&oacute;modo, por lo que se utiliza un sistema de logaritmos de la exponencial, los cents, que se pueden manejar linealmente. Entre una nota fundamental (0 cents) y su octava, hay 1200 cents. (Este n&uacute;mero se adopta solo por comodidad, porque 1200 es m&uacute;ltiplo de 2, 3, 5 y resulta f&aacute;cil de dividir; y quiz&aacute; por eurocentrismo, porque de esta manera cada nota occidental corresponde a 100 cents, que es un n&uacute;mero redondo y lindo, que hace quedar poco bellas a las entonaciones india o china).</p>
+<p>Como ya dije, nuestras notas occidentales est&aacute;n distanciadas por 100 cents:</p>
+<pre>
+la      0
+la#   100
+si    200
+do    300
+do#   400
+re    500
+re#   600
+mi    700
+fa    800
+fa#   900
+sol  1000
+sol# 1100
+la'  1200
+</pre>
+<p>Hay otras divisiones de la octava que otras culturas utilizan; uno de los m&aacute;s comunes es el pentat&oacute;nico (cinco notas). En la India se utilizan varios sistemas, uno de los cuales subdivide la octava en sesenta y seis notas. Se debe hacer notar que las notas no necesariamente deben respetar una <i>just-intonation</i> (entonaci&oacute;n en la cual todas las notas est&aacute;n distanciadas por el mismo intervalo, como en el ejemplo occidental, en el que van de cien en cien cents).</p>
+<a href="#arriba"><small>Arriba</small></a>
+
+<h2><a name="plebmus">M&uacute;sica plebensa</a></h2>
+<a href="#arriba"><small>Arriba</small></a>
+<p>Para los plebensa decid&iacute; crear varios sistemas musicales, por ejemplo uno octaf&oacute;nico con entonaci&oacute;n justa:</p>
+<pre>
+a    0
+b  150
+c  300
+d  450
+e  600
+f  750
+g  900
+h 1050
+</pre>
+<p>Pero una octava subdividida en solamente ocho notas no da mucho lugar al juego de escalas, por lo cual tambi&eacute;n cre&eacute; algunas m&aacute;s complejas, como la siguiente de 27 notas:</p>
+<pre>
+   0,00       45,28       113,21
+ 135,85      181,13       249,06
+ 271,70      316,98       384,91
+ 407,55      452,83       520,75
+ 543,40      588,68       656,60
+ 679,25      724,53       792,45
+ 815,09      860,38       928,30
+ 950,94      996,23      1064,15
+1086,79     1132,08      1200,00
+</pre>
+<p>He experimentado con estas escalas y un peque&ntilde;o script en <a href="http://www.python.org">Python</a> para escribir la m&uacute;sica, pero no soy un gran artista... (ni uno peque&ntilde;o, tampoco).</p>
+
+<a href="#arriba"><small>Arriba</small></a>
+
+</td></tr></table>
+<hr noshade>
+<p><small><a href="contacto.html">Cont&aacute;me</a> qu&eacute; pens&aacute;s de mi sitio.</small></p>
+</body>
+</html>

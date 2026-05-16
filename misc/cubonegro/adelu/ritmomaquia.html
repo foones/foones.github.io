@@ -1,0 +1,366 @@
+<html>
+<head>
+<title>Ritmomaquia</title>
+</head>
+<body bgcolor="cccccc">
+<center><font size=5>El juego matemático de la Ritmomaquia</font></center>
+<br>
+El juego matemático de la ritmomaquia puede ser un juego muy matemático. Según algunos manuscritos italianos, el juego de la ritmomaquia surgió en la Edad Media para entretener a los monjes en Bizancio y Europa. Se lo llama también "el juego de los filósofos".<br>
+Es una especie de variación del ajedrez combinada con la matemática aristotélica. Por lo que tengo entendido, ritmomaquia significa "batalla de los números".<br>
+<br>
+<b><u>Reglas</u></b>
+<ol>
+<li>Elementos:<br>
+El juego de la ritmomaquia se compone de un tablero de 8 cuadrados de ancho por 16 cuadrados de largo, y dos grupos de piezas: las piezas blancas o pares y las piezas negras o impares. Cada uno de los grupos tiene círculos, triángulos, cuadrados y pirámides. Cada pieza tiene un número conocido como su <i>valor numérico</i>.<br>
+La pirámide puede ser dependiendo de la versión del juego:
+<ol>
+<li>Piezas apiladas.
+<li>Un hexaedro con sus caras adecuadamente pintadas con valor numérico y tipo de pieza.
+</ol>
+Las piezas blancas se componen de ocho círculos (con los números 2, 4, 6, 8, 4, 16, 36, 64), ocho triángulos (con los números 6, 20, 42, 72, 9, 25, 49, 81), siete cuadrados (con los números 15, 45, 153, 25, 81, 169, 289) y una pirámide de seis caras, cuyos números suman 91 y está compuesta por dos círculos (con 25, 36), dos triángulos (con 1, 4) y dos cuadrados (con 16, 19).<br>
+Las piezas negras se componen de ocho círculos (con los números 3, 5, 7, 9, 9, 25, 49, 81), ocho triángulos (con los números 16, 36, 64, 100, 12, 30, 56, 90), siete cuadrados (con los números 28, 66, 120, 49, 121, 225, 361) y una pirámide de cinco caras, cuyos números suman 190 y está compuesta por un círculo (con 16), dos triángulos (con 25, 36) y dos cuadrados (con 49, 64).<br>
+<br>
+<b>Razón de los valores numéricos de las piezas:</b><br>
+<ol>
+<li>Piezas blancas o pares:<br>
+
+<ol>
+<li>parten de cuatro números pares (círculos):
+<ul>
+<li>n = 2
+<li>n = 4
+<li>n = 6
+<li>n = 8
+</ul>
+<li>luego sus cuadrados (círculos):
+<ul>
+<li>n * n = 2 x 2 = 4
+<li>n * n = 4 x 4 = 16
+<li>n * n = 6 x 6 = 36
+<li>n * n = 8 x 8 = 64
+</ul>
+<li>luego la suma de ellos y sus cuadrados (triángulos):
+<ul>
+<li>n + n * n = 2 + 2 x 2 = 2 + 4 = 6
+<li>n + n * n = 4 + 4 x 4 = 4 + 16 = 20
+<li>n + n * n = 6 + 6 x 6 = 6 + 36 = 42
+<li>n + n * n = 8 + 8 x 8 = 8 + 64 = 72
+</ul>
+(que también resultan de 2 x 3, 4 x 5, 6 x 7, 8 x 9)
+<li>luego el cuadrado de su número inmediatamente superior (triángulos):
+<ul>
+<li>(n + 1) * (n + 1) = (2 + 1) * (2 + 1) = 3 * 3 = 9
+<li>(n + 1) * (n + 1) = (4 + 1) * (4 + 1) = 5 * 5 = 25
+<li>(n + 1) * (n + 1) = (6 + 1) * (6 + 1) = 7 * 7 = 49
+<li>(n + 1) * (n + 1) = (8 + 1) * (8 + 1) = 9 * 9 = 81
+</ul>
+<li>luego la suma de los triángulos correspondientes (cuadrados):
+(siendo la fórmula n + n * n + (n + 1) * (n + 1))
+<ul>
+<li>6 + 9 = 15
+<li>20 + 25 = 45
+<li>42 + 49 = 91 <i>(pirámide)</i>
+<li>72 + 81 = 153
+</ul>
+<li>luego el cuadrado de la suma de sí mismos y el número inmediatamente superior (cuadrados):
+<ul>
+<li>(n + n + 1) * (n + n + 1) = (2 + 2 + 1) * (2 + 2 + 1) = 5 * 5 = 25
+<li>(n + n + 1) * (n + n + 1) = (4 + 4 + 1) * (4 + 4 + 1) = 9 * 9 = 81
+<li>(n + n + 1) * (n + n + 1) = (6 + 6 + 1) * (6 + 6 + 1) = 13 * 13 = 169
+<li>(n + n + 1) * (n + n + 1) = (8 + 8 + 1) * (8 + 8 + 1) = 17 * 17 = 289
+</ul>
+<li>La pirámide blanca se descompone en estas seis caras:
+<ul>
+<li>1 * 1 = 1 <i>(círculo)</i>
+<li>2 * 2 = 4 <i>(círculo)</i>
+<li>3 * 3 = 9 <i>(triángulo)</i>
+<li>4 * 4 = 16 <i>(triángulo)</i>
+<li>5 * 5 = 25 <i>(cuadrado)</i>
+<li>6 * 6 = 36 <i>(cuadrado)</i>
+</ul>
+</ol>
+
+
+<li>Piezas negras o impares:<br>
+
+<ol>
+<li>parten de cuatro números impares (círculos):
+<ul>
+<li>n = 3
+<li>n = 5
+<li>n = 7
+<li>n = 9
+</ul>
+<li>luego sus cuadrados (círculos):
+<ul>
+<li>n * n = 3 x 3 = 9
+<li>n * n = 5 x 5 = 25
+<li>n * n = 7 x 7 = 49
+<li>n * n = 9 x 9 = 81
+</ul>
+<li>luego la suma de ellos y sus cuadrados (triángulos):
+<ul>
+<li>n + n * n = 3 + 3 x 3 = 3 + 9 = 12
+<li>n + n * n = 5 + 5 x 5 = 5 + 25 = 30
+<li>n + n * n = 7 + 7 x 7 = 7 + 49 = 56
+<li>n + n * n = 9 + 9 x 9 = 9 + 81 = 90
+</ul>
+(que también resultan de 3 x 4, 5 x 6, 7 x 8, 9 x 10)
+<li>luego el cuadrado de su número inmediatamente superior (triángulos):
+<ul>
+<li>(n + 1) * (n + 1) = (3 + 1) * (3 + 1) = 4 * 4 = 16
+<li>(n + 1) * (n + 1) = (5 + 1) * (5 + 1) = 6 * 6 = 36
+<li>(n + 1) * (n + 1) = (7 + 1) * (7 + 1) = 8 * 8 = 64
+<li>(n + 1) * (n + 1) = (9 + 1) * (9 + 1) = 10 * 10 = 100
+</ul>
+<li>luego la suma de los triángulos correspondientes (cuadrados):
+(siendo la fórmula n + n * n + (n + 1) * (n + 1))
+<ul>
+<li>12 + 16 = 28
+<li>30 + 36 = 66
+<li>56 + 64 = 120
+<li>90 + 100 = 190 <i>(pirámide)</i>
+</ul>
+<li>luego el cuadrado de la suma de sí mismos y el número inmediatamente superior (cuadrados):
+<ul>
+<li>(n + n + 1) * (n + n + 1) = (3 + 3 + 1) * (3 + 3 + 1) = 7 * 7 = 49
+<li>(n + n + 1) * (n + n + 1) = (5 + 5 + 1) * (5 + 5 + 1) = 11 * 11 = 121
+<li>(n + n + 1) * (n + n + 1) = (7 + 7 + 1) * (7 + 7 + 1) = 15 * 15 = 225
+<li>(n + n + 1) * (n + n + 1) = (9 + 9 + 1) * (9 + 9 + 1) = 19 * 19 = 361
+</ul>
+<li>La pirámide negra se descompone en estas cinco caras:
+<ul>
+<li>4 * 4 = 16 <i>(círculo)</i>
+<li>5 * 5 = 25 <i>(triángulo)</i>
+<li>6 * 6 = 36 <i>(triángulo)</i>
+<li>7 * 7 = 49 <i>(cuadrado)</i>
+<li>8 * 8 = 64 <i>(cuadrado)</i>
+</ul>
+</ol>
+</ol>
+<li>Disposición física del juego en el comienzo:<br>
+(R para los círculos, T para los triángulos, S para los cuadrados, P para las pirámides)
+<CENTER><B>NEGRAS<BR></B>
+<TABLE border=1>
+  <TBODY>
+  <TR>
+    <TD>361S </TD>
+    <TD>225S </TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD>121S </TD>
+    <TD>49S </TD>
+  <TR>
+    <TD>190P </TD>
+    <TD>120S </TD>
+    <TD>90T </TD>
+    <TD>56T </TD>
+    <TD>30T </TD>
+    <TD>12T </TD>
+    <TD>66S </TD>
+    <TD>28S </TD>
+  <TR>
+    <TD>100T </TD>
+    <TD>64T </TD>
+    <TD>81C </TD>
+    <TD>49C </TD>
+    <TD>25C </TD>
+    <TD>9C </TD>
+    <TD>36T </TD>
+    <TD>16T </TD>
+  <TR>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD>9C </TD>
+    <TD>7C </TD>
+    <TD>5C </TD>
+    <TD>3C </TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+  <TR>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+  <TR>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+  <TR>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+  <TR>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+  <TR>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+  <TR>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+  <TR>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+  <TR>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+  <TR>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD>2C </TD>
+    <TD>4C </TD>
+    <TD>6C </TD>
+    <TD>8C </TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+  <TR>
+    <TD>9T </TD>
+    <TD>25T </TD>
+    <TD>4C </TD>
+    <TD>16C </TD>
+    <TD>36C </TD>
+    <TD>64C </TD>
+    <TD>49T </TD>
+    <TD>81T </TD>
+  <TR>
+    <TD>15S </TD>
+    <TD>45S </TD>
+    <TD>6T </TD>
+    <TD>20T </TD>
+    <TD>42T </TD>
+    <TD>72T </TD>
+    <TD>91P </TD>
+    <TD>153S </TD>
+  <TR>
+    <TD>25S </TD>
+    <TD>81S </TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD><BR></TD>
+    <TD>169S </TD>
+    <TD>289S </TD>
+  <TR></TR></TBODY></TABLE><B>BLANCAS<BR></B></CENTER>
+  <br>
+  Al ser un juego medieval (o sea, que puede tener muchas variantes) y al no haber sido estandarizado por ninguna organización internacional; existen muchísimas variantes en cuanto a la disposición del juego al comenzar.
+<li>Objetivo:<br>
+El objetivo del juego es capturar piezas del adversario para entonces formar ciertas combinaciones numéricas que constituyen una victoria.
+<li>Movimientos:<br>
+Los movimientos los efectúa cada jugador, por turnos alternativos. Puede mover cualquiera de las piezas según las posibilidades de éstas.<br>
+<ol>
+<li>Círculos: los círculos se mueven únicamente un espacio por vez.
+<li>Triángulos: los triángulos se mueven tres y sólo tres espacios por vez.
+<li>Cuadrados: los cuadrados se mueven cuatro y sólo cuatro espacios por vez.
+<li>Pirámides: para utilizar una pirámide, se elige la cara con la que se quiere mover. La pirámide responde al movimiento de la cara en uso.
+</ol>
+Restricciones:<br>
+<ol>
+<li>Las piezas se pueden mover sólo en forma ortogonal (NO a través de las diagonales); aunque esta restricción no existe en algunas versiones del juego.
+<li>Los espacios por los que avanza la pieza no pueden estar ocupados por otra propia, ni del enemigo.
+<li>Si el límite del tablero está más cerca del alcance de la pieza; ésta no puede desplazarse hacia él.
+<li>La pieza no puede cambiar de dirección en su trayectoria.
+</ol>
+<li>Capturas:<br>
+Los métodos de captura son:
+<ol>
+<li>Captura por asedio: si una pieza del adversario queda rodeada por los cuatro casilleros ortogonalmente ubicados e inmediatos, es capturada. La pieza debe estar encerrada entre piezas propias. No existe asedio si se rodea a la pieza sobre los bordes del tablero (en algunas versiones, ésto si cuenta como una captura).
+<li>Captura por encuentro: si se mueve una pieza el número correspondiente de casillas sobre un recorrido válido y cae sobre una del adversario, ésta última es capturada.
+<li>Captura por emboscada: si dos piezas propias se encuentran a los lados de una del adversario 
+de modo que sus valores numéricos sumados (y en algunas versiones restados, multiplicados
+o divididos) den el valor numérico que la pieza rodeada, ésta última es capturada.
+<li>Captura por ataque: si la cantidad de espacios libres entre una pieza propia y una del adversario multiplicada por el valor numérico de la pieza propia, resulta el valor numérico de la pieza adversaria; ésta última es capturada. En algunas versiones, los espacios se cuentan incluyendo los de las piezas.
+</ol>
+<br>
+Observaciones:<br>
+La captura se efectúa sólo cuando el estado propicio para esta se da a partir del último movimiento propio. No se cuenta como captura si un movimiento del adversario provoca el hipotético estado de captura de una de sus piezas.<br>
+El resultado de la captura varía dependiendo de la versión del juego. En algunos, la pieza simplemente se retira del tablero. En otros, la pieza capturada se vuelve propia (las piezas físicas estarían pintadas de blanco de uno de sus lados, y de negro del otro de modo que al ser capturadas puedan darse vuelta).<br>
+<br>
+Las pirámides:<br>
+Cuando la pirámide es agente de la captura, se toma en cuenta el número de la última cara utilizada para desplazarse o bien el valor total de la suma de las piezas componentes, indiferentemente (si es necesario el uso del valor numérico en la captura).<br>
+Para capturar una pirámide, es necesario obtener el valor de la suma de las piezas componentes
+(también pueden ser capturadas por asedio o encuentro).<br>
+Si se captura con el valor numérico de una de las caras de la pirámide, pueden ocurrir dos cosas, dependiendo del tipo de pirámide utilizada:<br>
+<ol>
+<li>Si la pirámide es un hexaedro, se da a cambio de la cara de la pirámide, una pieza de valor numérico igual (o en su defecto, inferior, o en su defecto, superior).
+<li>Si la pirámide es una pila de piezas, se entrega la pieza capturada. Si se recaptura una de estas piezas, no pueden se reensambladas a la pirámide.
+</ol>
+<li>Victorias o triunfos:<br>
+Victorias menores:<br>
+Estas victorias deben formarse con las piezas capturadas del adversario (el total de ellas o sólo las necesarias).<br>
+<ol>
+<li>De corpore: los jugadores acuerdan el número tope de piezas a capturar, número que declarará ganador al jugador que primero lo obtenga.
+<li>De bonis: los jugadores acuerdan un número tope; si la suma de los valores numéricos de laspiezas capturadas por un jugador iguala o excede dicho número, ese jugador es el ganador.
+<li>De lite: los jugadores acuerdan un total numérico y una cantidad total de dígitos en las piezas. El jugador que logre sumar o exceder el total numérico sin exceder la cantidad total de dígitos, será el ganador.
+<li>De honore: los jugadores acuerdan un total numérico y un determinado número de piezas. El jugador que logre sumar o exceder el total numérico con esa cantidad de piezas ganará.
+<li>De honore liteque: los jugadores acuerdan un total numérico, un determinado número de piezas y una cantidad tope de dígitos. El jugador que sume o exceda el total numérico con esa cantidad de piezas y no exceda esa cantidad de dígitos ganará.
+</ol>
+Victorias mayores:<br>
+Estas victorias deben formarse con las piezas capturadas del adversario o las propias, pero por lo menos una debe ser del adversario. En algunas versiones requieren haber capturado previamente la pirámide enemiga.<br>
+<ol>
+<li>Victoria magna: requiere disponer tres piezas en progresión aritmética, geométrica o armónica.
+<li>Victoria mayor: requiere disponer cuatro piezas que puedan combinarse en grupos de tres para formar dos de tres progresiones posibles.
+<li>La gran victoria: requiere disponer cuatro piezas que puedan combinarse en grupos de tres para formar las tres progresiones posibles.
+</ol>
+Progresiones:
+<ol>
+<li>Una progresión aritmética es aquella en la que la diferencia de sus componentes es una constante, llamada razón de la progresión. Por ejemplo: 2, 3, 4, 5, 6 (razón = 1) ó 5, 7, 9, 11, 13 (razón = 2).
+<li>Una progresión geométrica es aquella en la que la razón de sus componentes es una constante, llamada razón de la progresión. Por ejemplo: 2, 4, 8, 16, 32 (razón = 2) ó 6, 18, 54, 162, 486
+(razón = 3).
+<li>Una progresión armónica es aquella en la que la razón de dos diferencias sucesivas es igual a la razón de los números del extremo. Si la progresión es a, b, c; entonces c/a = (c-b)/(b-a). Este número es la razón de la progresión. Por ejemplo 4, 6, 12 (razón = 3), ya que 12/4 = 3 y (12-6)/(6-4) = 3.
+</ol>
+<li>Para encontrar:
+uno de los problemas más difíciles es encontrar información acerca de la ritmomaquia. Es el único nombre que conozco en español. En inglés se denomina RITHMOMACHY, RITHMOMACHIA, RYTHMOMACHY, RYTHMOMACHIA o RITHMIMACHIA. También "THE PHILOSOPHERS' GAME". O puede buscarse dentro de la categoría "PERIOD GAMES". Existe un juego para PCs (para Windows '95 o superior) basado en la ritmomaquia, llamado AMBUSH.<br>
+Páginas relacionadas:<br>
+<a href="http://www-cs.canisius.edu/~salley/articles.html">http://www-cs.canisius.edu/~salley/articles.html</a>: artículos sobre juegos de mesa y apuestas (incluyendo la ritmomaquia) [en inglés].<br>
+<a href="http://acanomas.com.ar/historic/juegos_tablero.htm">http://acanomas.com.ar/historic/juegos_tablero.htm</a>: juegos de tablero romanos (incluyendo el latrunculi o ajedrez romano).<br>
+<a href="http://www.chessvariants.com">http://www.chessvariants.com</a>: variantes del ajedrez (orientales, con tableros de formas extrañas, con piezas anormales, grandes, chicos, etc.) [en inglés].
+</ol>
+</body>
+</html>
