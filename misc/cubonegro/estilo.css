@@ -1,23 +1,22 @@
 body	{
-	font: 10pt/16pt georgia, sans-serif;
-	color: #555753;
-	background: #fff /*url(_fondo.jpg) no-repeat top left*/;
-	margin: 20px; 
+	background: #b0c4de;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt
 	}
 table	{
-	background: transparent;
-	font: 10pt/16pt georgia, sans-serif;
+	background: #b0c4de;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10pt
 	}
 h1	{
-	font-size: 12pt;
-	background: #000030;
-	color: #ffffff;
-	text-align: left;
-	margin-left: -10px;
-    padding:5px;
+	font-size: 14pt;
+	color: #00006b;
+	font-weight: bold;
+	text-align: left
 	}
 h2	{	
-	color: #000000;
+	background: #778899;
+	color: #ffffff;
 	font-size: 12pt;
 	font-weight: bold;
 	text-align: left
@@ -29,12 +28,12 @@ h3	{
 	text-align: left
 	}
 p	{
-	text-align: left;
+	text-align: justify;
 	text-indent: 2.5%;
 	margin-top: 10pt;
 	margin-bottom: 3pt;
 	margin-left: 2.5%;
-	margin-right: 20%;
+	margin-right: 2.5%;
 	line-height: 150%;
 }
 
